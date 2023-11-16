@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bgColor: #f3f0ca;
+  --textColor: #192655;
+  --btnBg: #3876bf;
+}
+
+body {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+}
+
+a {
+  color: var(--textColor);
+}
+
+header {
+  text-align: center;
+  margin: 5px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  gap: 10px;
+}
+
+.buttons button {
+  padding: 3px 8px;
+  background-color: var(--textColor);
+  color: var(--bgColor);
+  border-radius: 20%;
+  border: 1px solid var(--textColor);
+}
+
+.buttons button:hover {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
+}
+
+.board {
+  width: 390px;
+  height: 390px;
+  border: 1px solid black;
+}
+
+.display-container {
+  margin: 5px;
+  font-weight: 700;
+}
+
+.change-size-container {
+  margin: 5px;
+}
+
+.change-size-container button,
+input {
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.change-size-btn {
+  background-color: var(--textColor);
+  color: var(--bgColor);
+}
+
+.change-size-btn:hover {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
+}
+
+footer {
+  text-align: center;
+  margin: 10px;
+}
