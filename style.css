@@ -56,6 +56,7 @@ main {
   width: 390px;
   height: 390px;
   border: 1px solid black;
+  display: grid;
 }
 
 .display-container {
