@@ -39,18 +39,19 @@ main {
 }
 
 .buttons button {
-  padding: 3px 8px;
+  padding: 5px 10px;
   background-color: var(--textColor);
   color: var(--bgColor);
   border-radius: 20%;
   border: 1px solid var(--textColor);
+  font-size: 15px;
 }
 
-.buttons button:hover {
+/* .buttons button:hover {
   background-color: var(--bgColor);
   color: var(--textColor);
   border: 1px solid var(--textColor);
-}
+} */
 
 .board {
   width: 390px;
@@ -79,11 +80,11 @@ input {
   color: var(--bgColor);
 }
 
-.change-size-btn:hover {
+/* .change-size-btn:hover {
   background-color: var(--bgColor);
   color: var(--textColor);
   border: 1px solid var(--textColor);
-}
+} */
 
 footer {
   text-align: center;

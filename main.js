@@ -2,6 +2,44 @@ const board = document.querySelector(".board");
 const input = document.querySelector(".input-size");
 const changeSize = document.querySelector(".change-size-btn");
 const display = document.querySelector(".display");
+const buttonsDiv = document.querySelector(".buttons");
+
+//Handle buttons
+buttonsDiv.addEventListener("click", handleButtons);
+
+function handleButtons(event) {
+  let inputBtn = event.target.className;
+  switch (inputBtn) {
+    case "reset":
+      handleReset();
+      break;
+    default:
+      return;
+  }
+}
+
+//Handle Reset
+function handleReset() {
+  clearDiv();
+  createDiv(16);
+  input.value = "";
+}
+
+//Button style
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.target.style.backgroundColor = "#f3f0ca";
+    e.target.style.color = "black";
+
+    let intervalId;
+    intervalId = setInterval(() => {
+      e.target.style.backgroundColor = "#192655";
+      e.target.style.color = "#f3f0ca";
+    }, 500);
+  });
+});
 
 createDiv(16); // Set initial div inside board to 16
 input.value = ""; //clear input value
@@ -42,3 +80,5 @@ function handleChangeSize() {
     return;
   }
 }
+
+//Handle reset
