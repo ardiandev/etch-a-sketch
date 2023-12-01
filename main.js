@@ -4,6 +4,39 @@ const changeSize = document.querySelector(".change-size-btn");
 const display = document.querySelector(".display");
 const buttonsDiv = document.querySelector(".buttons");
 
+//Start the board after DOM Content Loaded
+document.addEventListener("DOMContentLoaded", startBoard);
+
+function startBoard() {
+  createDiv(16); // Set initial div inside board to 16
+  input.value = ""; //clear input value
+}
+
+// Add drawing functionality by hovering in the board
+
+board.addEventListener("click", drawing);
+
+let status = false; //Status for start and stop drawing
+function drawing(event) {
+  // console.log(event.target);
+  if (!status) {
+    board.addEventListener("mouseover", handleColor);
+    console.log("stop");
+    console.log(event.target);
+    status = true;
+  } else {
+    board.removeEventListener("mouseover", handleColor);
+    console.log("stop");
+    status = false;
+  }
+}
+
+function handleColor(event) {
+  if (event.target.className !== "board" && status == true) {
+    event.target.style.backgroundColor = "black";
+  }
+}
+
 //Handle buttons
 buttonsDiv.addEventListener("click", handleButtons);
 
@@ -32,17 +65,16 @@ buttons.forEach(btn => {
   btn.addEventListener("click", e => {
     e.target.style.backgroundColor = "#f3f0ca";
     e.target.style.color = "black";
+    e.target.classList.add("clicked-btn");
 
     let intervalId;
     intervalId = setInterval(() => {
       e.target.style.backgroundColor = "#192655";
       e.target.style.color = "#f3f0ca";
-    }, 500);
+      e.target.classList.remove("clicked-btn");
+    }, 200);
   });
 });
-
-createDiv(16); // Set initial div inside board to 16
-input.value = ""; //clear input value
 
 //Handle create div in the board
 function createDiv(size) {
@@ -68,6 +100,7 @@ function clearDiv() {
 //Handle change size
 function handleChangeSize() {
   let inputSize = Number(input.value);
+  status = false;
 
   if (inputSize >= 2 && inputSize <= 100) {
     clearDiv();
