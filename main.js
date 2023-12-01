@@ -3,6 +3,7 @@ const input = document.querySelector(".input-size");
 const changeSize = document.querySelector(".change-size-btn");
 const display = document.querySelector(".display");
 const buttonsDiv = document.querySelector(".buttons");
+let color = "default"; //Initial the drawing color. Default means black.
 
 //Start the board after DOM Content Loaded
 document.addEventListener("DOMContentLoaded", startBoard);
@@ -32,8 +33,19 @@ function drawing(event) {
 }
 
 function handleColor(event) {
+  let theColor;
+  if (color === "rgb") {
+    theColor = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(
+      Math.random() * 256
+    )},${Math.floor(Math.random() * 256)} )`;
+  } else if (color === "gray") {
+    theColor = "gray";
+  } else {
+    theColor = "black";
+  }
+
   if (event.target.className !== "board" && status == true) {
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = theColor;
   }
 }
 
@@ -41,14 +53,27 @@ function handleColor(event) {
 buttonsDiv.addEventListener("click", handleButtons);
 
 function handleButtons(event) {
-  let inputBtn = event.target.className;
+  console.log(event.target.textContent.toLowerCase());
+  let inputBtn = event.target.textContent.toLowerCase();
+  // console.log(inputBtn);
   switch (inputBtn) {
     case "reset":
       handleReset();
       break;
+    case "gray":
+    case "black":
+    case "rgb":
+      handleColorBtn(inputBtn);
+      break;
     default:
       return;
   }
+}
+
+//Add handle color change btn
+function handleColorBtn(input) {
+  color = input;
+  console.log(color);
 }
 
 //Handle Reset
