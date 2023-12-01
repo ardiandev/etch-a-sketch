@@ -2,6 +2,10 @@
 
 This Etch a Sketch project is a simple web application that allows users to create drawings on a virtual sketchpad. It provides basic drawing functionality, color options, and the ability to reset the canvas size. This is part of The Odin Project.
 
+## Demo
+
+See a live demo of the Etch a Sketch application [here](https://ardiandev.github.io/etch-a-sketch/)
+
 ## Features
 
 - **Drawing**: Click on the board to draw.
