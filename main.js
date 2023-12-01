@@ -4,6 +4,7 @@ const changeSize = document.querySelector(".change-size-btn");
 const display = document.querySelector(".display");
 const buttonsDiv = document.querySelector(".buttons");
 let color = "default"; //Initial the drawing color. Default means black.
+const buttons = document.querySelectorAll("button");
 
 //Start the board after DOM Content Loaded
 document.addEventListener("DOMContentLoaded", startBoard);
@@ -81,12 +82,13 @@ function handleReset() {
   clearDiv();
   createDiv(16);
   input.value = "";
+  color = "default";
 }
 
 //Button style
-const buttons = document.querySelectorAll("button");
 
 buttons.forEach(btn => {
+  console.log(btn);
   btn.addEventListener("click", e => {
     e.target.style.backgroundColor = "#f3f0ca";
     e.target.style.color = "black";
@@ -123,7 +125,7 @@ function clearDiv() {
 }
 
 //Handle change size
-function handleChangeSize() {
+function handleChangeSize(event) {
   let inputSize = Number(input.value);
   status = false;
 

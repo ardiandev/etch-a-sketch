@@ -83,6 +83,7 @@ input {
 .change-size-btn {
   background-color: var(--textColor);
   color: var(--bgColor);
+  transition: all 0.5s ease-in-out;
 }
 
 /* .change-size-btn:hover {
@@ -94,4 +95,26 @@ input {
 footer {
   text-align: center;
   margin: 10px;
+}
+
+@media (max-width: 600px) {
+  .board {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    display: grid;
+  }
+
+  .buttons button {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+
+  .change-size-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+  }
 }
